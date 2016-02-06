@@ -19,4 +19,4 @@ type Network = {
 
 type createNetwork = int -> Network
 
-type evaluate = float list -> float
+type evaluate = float list -> float list
