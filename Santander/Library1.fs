@@ -109,3 +109,41 @@ let y =
     |> Array.ofSeq
 
 let theta = regress x y
+
+
+//========================================================== output
+
+let parseColumns' (headers:string[]) (row:CsvRow) =
+    headers
+    |> Seq.filter (fun header -> toKeep |> List.contains header)
+    |> Seq.map(fun header -> row.GetColumn header |> System.Double.Parse)
+    |> Array.ofSeq
+    |> Array.append ([|1.0|])
+    ,
+    row.GetColumn "ID" |> System.Int32.Parse
+
+let file' = CsvFile.Load @"D:\New_folder\personal\prithvi\2016\Kaggle\Santander\data\test.csv"
+let headers' = match file.Headers with | Some str -> str | None -> [||]
+
+let inputs' = 
+    file'.Rows
+    |> Seq.map(parseColumns' headers)
+
+let length = x.[0].Length
+let avgs = [|0..length-1|] |> Array.map(fun a -> x |> Array.map(fun xi -> xi.[a]) |> Array.average)
+let mins = [|0..length-1|] |> Array.map(fun a -> x |> Array.map(fun xi -> xi.[a]) |> Array.min)
+let maxs = [|0..length-1|] |> Array.map(fun a -> x |> Array.map(fun xi -> xi.[a]) |> Array.max)
+
+
+let t =
+    inputs'
+    |> Seq.map(fun (a,b) ->
+        a 
+        |> Array.mapi(fun i xi -> scale avgs.[i] mins.[i] maxs.[i] xi)
+        |> fun a -> b, sigmoid a theta
+      )
+
+let f = new System.IO.StreamWriter @"D:\New_folder\personal\prithvi\2016\Kaggle\Santander\data\submit2.csv"
+t |> Seq.iter(fun (a, b) -> f.WriteLine (sprintf "%d,%f" a b))
+f.Flush()
+f.Dispose()

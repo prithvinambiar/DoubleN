@@ -23,6 +23,11 @@ let updateTheta (x:float [] []) y theta alpha =
     theta
     |> Array.Parallel.mapi(temp)
 
+let log num =
+    match num <= 0.0 with
+    | true -> 1000.0
+    | false -> Math.Log num
+
 let cost x (y:float []) theta=
     x
     |> Array.Parallel.mapi(fun i xi ->
@@ -30,7 +35,7 @@ let cost x (y:float []) theta=
             match sigmoid xi theta with
             | 0.0 -> 0.01
             | _ as a  -> a
-        y.[i] * -Math.Log temp + (1.0 - y.[i]) * -Math.Log (1.0 - temp))
+        y.[i] * -log (temp) + (1.0 - y.[i]) * -log (1.0 - temp))
     |> Array.reduce(+)
     |> fun a -> a / (float)(x |> Array.length)
 
@@ -40,13 +45,13 @@ let isConverged (cost:float) (prevCost:float) =
     Math.Abs (cost - prevCost) < threshold
 
 let rec run x y theta iter prevCost =
-    let maxIteration = 50
+    let maxIteration = 5000
     match iter < maxIteration with
     | true ->
         printfn "Iteration %A started" iter |> ignore
-        let theta = updateTheta x y theta 0.1
-        //let cost' = cost x y theta
-        let cost' = 0.0
+        let theta = updateTheta x y theta 0.03
+        let cost' = cost x y theta
+        printfn "The cost is %A" cost'
         match false with
         | true -> printfn "Logistic regression has converged, cheers!!. Number of iteration %A" iter |> ignore; theta
         | false -> run x y theta (iter + 1) cost'
