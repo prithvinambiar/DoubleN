@@ -9,19 +9,28 @@ let sigmoid xi theta =
     |> Array.fold2(fun s a b -> s + a * b) 0.0 theta
     |> fun res -> 1.0 / (1.0 + Math.Exp -res)
 
-let step x y theta j =
-    y
-    |> Array.mapi2(fun i xi yi ->((sigmoid xi theta) - yi) * (xi |> Array.item j)) x
+let step x (y:float []) theta j =
+    let temp = fun i xi ->((sigmoid xi theta) - y.[i]) * xi.[j]
+
+    x
+    |> Array.Parallel.mapi(temp)
     |> Array.reduce(+)
 
 let updateTheta (x:float [] []) y theta alpha =
     let step' = step x y theta
-    theta
-    |> Array.Parallel.mapi(fun i t -> t - alpha * (step' i))
+    let temp = fun i t -> t - alpha * (step' i)
 
-let cost x y theta=
-    y
-    |> Array.map2(fun xi yi -> yi * -Math.Log (sigmoid xi theta) + (1.0 - yi) * -Math.Log (1.0 - (sigmoid xi theta))) x
+    theta
+    |> Array.Parallel.mapi(temp)
+
+let cost x (y:float []) theta=
+    x
+    |> Array.Parallel.mapi(fun i xi ->
+        let temp =
+            match sigmoid xi theta with
+            | 0.0 -> 0.01
+            | _ as a  -> a
+        y.[i] * -Math.Log temp + (1.0 - y.[i]) * -Math.Log (1.0 - temp))
     |> Array.reduce(+)
     |> fun a -> a / (float)(x |> Array.length)
 
@@ -31,12 +40,11 @@ let isConverged (cost:float) (prevCost:float) =
     Math.Abs (cost - prevCost) < threshold
 
 let rec run x y theta iter prevCost =
-    let maxIteration = 1
+    let maxIteration = 50
     match iter < maxIteration with
     | true ->
-        printfn "Before updateTheta "
+        printfn "Iteration %A started" iter |> ignore
         let theta = updateTheta x y theta 0.1
-        printfn "After updateTheta "
         //let cost' = cost x y theta
         let cost' = 0.0
         match false with

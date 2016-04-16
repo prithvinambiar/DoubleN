@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DoubleN", "DoubleN\DoubleN.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LogisticRegression", "LinearRegression\LogisticRegression.fsproj", "{56F521A0-B980-4CCA-BF1A-489A97F81C05}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Santander", "Santander\Santander.fsproj", "{E48ED9E9-6A3A-4D39-9CBE-3DBDBF470746}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{56F521A0-B980-4CCA-BF1A-489A97F81C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56F521A0-B980-4CCA-BF1A-489A97F81C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56F521A0-B980-4CCA-BF1A-489A97F81C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E48ED9E9-6A3A-4D39-9CBE-3DBDBF470746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48ED9E9-6A3A-4D39-9CBE-3DBDBF470746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48ED9E9-6A3A-4D39-9CBE-3DBDBF470746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48ED9E9-6A3A-4D39-9CBE-3DBDBF470746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
