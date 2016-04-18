@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>56f521a0-b980-4cca-bf1a-489a97f81c05</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>LinearRegression</RootNamespace>
-    <AssemblyName>LinearRegression</AssemblyName>
+    <RootNamespace>LogisticRegression</RootNamespace>
+    <AssemblyName>LogisticRegression</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -22,7 +22,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\LinearRegression.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\LogisticRegression.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,7 +31,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\LinearRegression.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\LogisticRegression.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

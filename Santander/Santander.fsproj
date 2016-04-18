@@ -70,7 +70,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LinearRegression\LogisticRegression.fsproj">
+    <ProjectReference Include="..\LogisticRegression\LogisticRegression.fsproj">
       <Name>LogisticRegression</Name>
       <Project>{56f521a0-b980-4cca-bf1a-489a97f81c05}</Project>
       <Private>True</Private>

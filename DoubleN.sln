@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DoubleN", "DoubleN\DoubleN.fsproj", "{68DFF7D8-0A07-4A43-9050-CBEF98B0EACD}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LogisticRegression", "LinearRegression\LogisticRegression.fsproj", "{56F521A0-B980-4CCA-BF1A-489A97F81C05}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LogisticRegression", "LogisticRegression\LogisticRegression.fsproj", "{56F521A0-B980-4CCA-BF1A-489A97F81C05}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Santander", "Santander\Santander.fsproj", "{E48ED9E9-6A3A-4D39-9CBE-3DBDBF470746}"
 EndProject
