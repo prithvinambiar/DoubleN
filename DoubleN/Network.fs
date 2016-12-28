@@ -1,6 +1,8 @@
 ﻿module DoubleN.Network
 
 open DoubleN.DataStructure
+open DoubleN.Layer
+open DoubleN.Neuron
 open System
 
 let a = System.Random()
