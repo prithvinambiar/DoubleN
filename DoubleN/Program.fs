@@ -17,10 +17,10 @@ let main argv =
     let i1 = [for i in x -> (i, 1.0/(1.0 + System.Math.Exp (-i)))]
     let i2 = [for i in x -> (i, System.Math.Log(i))]
 
-    Chart.Combine[
-        //Chart.Line(i1)
-        Chart.Line(i2)
-    ].ShowChart()
+//    Chart.Combine[
+//        //Chart.Line(i1)
+//        Chart.Line(i2)
+//    ].ShowChart()
     
 
     System.Console.ReadLine()

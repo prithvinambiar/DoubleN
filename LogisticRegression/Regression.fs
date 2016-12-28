@@ -45,7 +45,7 @@ let isConverged (cost:float) (prevCost:float) =
     Math.Abs (cost - prevCost) < threshold
 
 let rec run x y theta iter prevCost =
-    let maxIteration = 5000
+    let maxIteration = 10000
     match iter < maxIteration with
     | true ->
         printfn "Iteration %A started" iter |> ignore
