@@ -57,10 +57,9 @@
     <Compile Include="AssemblyInfo.fs" />
     <None Include="App.config" />
     <Compile Include="RandomNumber.fs" />
-    <Compile Include="Neuron.fs" />
-    <Compile Include="Layer.fs" />
-    <Compile Include="DataStructure.fs" />
-    <Compile Include="Network.fs" />
+    <Compile Include="DomainTypes.fs" />
+    <Compile Include="Initialization.fs" />
+    <Compile Include="Evaluation.fs" />
     <Compile Include="Program.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
