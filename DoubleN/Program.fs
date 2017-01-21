@@ -1,11 +1,12 @@
 ﻿// Learn more about F# at http://fsharp.org
 // See the 'F# Tutorial' project for more help.
+module DoubleN.Main
 
 open DoubleN.DomainTypes
 open FSharp.Charting
 
 
-[<EntryPoint>]
+//[<EntryPoint>]
 let main argv =
     //let n = {inputs = [{neuron = None; input = Input 9.8; weight = Weight 7.5}]; outputs = []}
     printfn "%A" argv

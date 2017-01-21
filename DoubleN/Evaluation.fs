@@ -18,4 +18,3 @@ let evaluateLayer inputs layer =
 let evaluateNetwork network inputs =
     network.layers
     |> Seq.fold(fun state layer -> layer |> evaluateLayer state) inputs
-
