@@ -60,6 +60,7 @@
     <Compile Include="DomainTypes.fs" />
     <Compile Include="Initialization.fs" />
     <Compile Include="Evaluation.fs" />
+    <Compile Include="Train.fs" />
     <Compile Include="Program.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
